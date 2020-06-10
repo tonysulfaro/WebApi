@@ -7,6 +7,7 @@ using WebApi.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using WebApi.Models;
 
 namespace WebApi
 {
@@ -24,6 +25,9 @@ namespace WebApi
         {
             services.AddCors();
             services.AddControllers();
+
+            // database
+            services.AddDbContext<TodoDBContext>();
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
